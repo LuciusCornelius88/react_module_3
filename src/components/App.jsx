@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Header from './Header/Header';
-// import Search from './Search/Search';
+import Search from './Search/Search';
 // import Counter from './Counter/Counter';
 import Modal from './Modal/Modal';
 import ToDoList from './ToDoList/ToDoList';
@@ -18,7 +18,7 @@ const App = () => {
 
   const closeModal = () => setIsShowModal(false);
 
-  // const handleSearch = (searchText) => setSearchText(searchText);
+  const handleSearch = (searchText) => setSearchText(searchText);
 
   const createUser = (data) => {
     const newUser = {
@@ -38,7 +38,7 @@ const App = () => {
         }}
       />
       <Header showModal={showModal} />
-      {/* <Search handleSearch={handleSearch} /> */}
+      <Search handleSearch={handleSearch} />
       <ContentInfo searchText={searchText} />
       {/* <Counter /> */}
       <ToDoList />
