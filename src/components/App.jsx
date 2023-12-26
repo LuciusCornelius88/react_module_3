@@ -18,7 +18,7 @@ const App = () => {
 
   const closeModal = () => setIsShowModal(false);
 
-  const handleSearch = (searchText) => setSearchText(searchText);
+  // const handleSearch = (searchText) => setSearchText(searchText);
 
   const createUser = (data) => {
     const newUser = {
