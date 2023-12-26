@@ -1,45 +1,34 @@
-import { Component } from 'react';
+import { useEffect } from 'react';
 
-class Modal extends Component {
-  state = {};
+const Modal = ({ closeModal, children }) => {
+  useEffect(() => {
+    const onPressESC = (evt) => {
+      if (evt.code === 'Escape') {
+        console.log('object :>> ', Date.now());
+        closeModal();
+      }
+    };
 
-  componentDidMount() {
-    window.addEventListener('keydown', this.onPressESC);
-  }
+    window.addEventListener('keydown', onPressESC);
 
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.onPressESC);
-  }
+    return () => {
+      window.removeEventListener('keydown', onPressESC);
+    };
+  }, [closeModal]);
 
-  onPressESC = evt => {
-    if (evt.code === 'Escape') {
-      this.props.closeModal();
-    }
-  };
-
-  render() {
-    return (
-      <div
-        className="modal fade show"
-        style={{ display: 'block', backdropFilter: 'blur(5px)' }}
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title"> Modal</h5>
-              <button
-                type="button"
-                className="btn-close"
-                aria-label="Close"
-                onClick={this.props.closeModal}
-              ></button>
-            </div>
-            <div className="modal-body">{this.props.children}</div>
+  return (
+    <div className="modal fade show" style={{ display: 'block', backdropFilter: 'blur(5px)' }}>
+      <div className="modal-dialog">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title"> Modal</h5>
+            <button type="button" className="btn-close" aria-label="Close" onClick={closeModal}></button>
           </div>
+          <div className="modal-body">{children}</div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Modal;
