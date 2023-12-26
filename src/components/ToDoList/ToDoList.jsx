@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 
 import ToDo from '../ToDo/ToDo';
 import FormToDo from 'components/FormToDo/FormToDo';

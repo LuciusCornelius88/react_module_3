@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from './Header/Header';
-import Search from './Search/Search';
-import Counter from './Counter/Counter';
+// import Search from './Search/Search';
+// import Counter from './Counter/Counter';
 import Modal from './Modal/Modal';
 import ToDoList from './ToDoList/ToDoList';
 import FormLogin from './FormLogin/FormLogin';
