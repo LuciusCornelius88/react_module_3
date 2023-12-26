@@ -1,0 +1,46 @@
+import { Component } from 'react';
+
+class Search extends Component {
+  state = {
+    value: '',
+  };
+
+  handleChange = ({ target: { value } }) => {
+    this.setState({
+      value,
+    });
+  };
+
+  handleSubmit = evt => {
+    evt.preventDefault();
+    this.props.handleSearch(this.state.value);
+    evt.target.reset();
+    this.resetState();
+  };
+
+  resetState = () => {
+    this.setState({
+      value: '',
+    });
+  };
+
+  render() {
+    return (
+      <form className="d-flex mt-2" role="search" onSubmit={this.handleSubmit}>
+        <input
+          className="form-control me-2 "
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          onChange={this.handleChange}
+          value={this.state.value}
+        />
+        <button className="btn btn-outline-success" type="submit">
+          Search
+        </button>
+      </form>
+    );
+  }
+}
+
+export default Search;
